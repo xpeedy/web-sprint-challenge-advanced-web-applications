@@ -6,6 +6,7 @@ import ColorList from "./ColorList";
 
 const BubblePage = () => {
   const [colorList, setColorList] = useState([]);
+  const [updatedList, setUpdatedList] = useState(true)
   
 
   useEffect(() => {
@@ -19,11 +20,11 @@ const BubblePage = () => {
       console.log(err)
     })
     
-  },[setColorList])
+  },[updatedList])
 
   return (
     <>
-      <ColorList path ="/bubblespage/:id" colors={colorList} updateColors={setColorList} />
+      <ColorList path ="/bubblespage/:id" colors={colorList} updateColors={setColorList} updatedList={updatedList} setList={setUpdatedList}/>
       <Bubbles colors={colorList} />
     </>
   );
